@@ -1,0 +1,20 @@
+{
+	"name": "FinalDataSink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "airportdemoworkspace-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "SinkData",
+				"fileSystem": "airportdemofilesystem"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
