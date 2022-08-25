@@ -10,16 +10,30 @@
 						"type": "DatasetReference"
 					},
 					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "select1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          ident as string,",
 				"          type as string,",
 				"          name as string,",
-				"          elevation_ft as string,",
+				"          elevation_ft as integer,",
 				"          continent as string,",
 				"          iso_country as string,",
 				"          iso_region as string,",
@@ -31,7 +45,29 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1"
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source(output(",
+				"          Name as string,",
+				"          Code as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source2",
+				"source1 derive(lon = toDouble(split(coordinates,',')[1]),",
+				"          lat = toDouble(split(coordinates,',')[2])) ~> derivedColumn1",
+				"derivedColumn1 select(mapColumn(",
+				"          ident,",
+				"          type,",
+				"          name,",
+				"          elevation_ft,",
+				"          continent,",
+				"          iso_country,",
+				"          municipality,",
+				"          lon,",
+				"          lat",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1"
 			]
 		}
 	}
