@@ -9,26 +9,34 @@
 						"referenceName": "airportCSV",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "airport"
 				},
 				{
 					"dataset": {
 						"referenceName": "DelimitedText1",
 						"type": "DatasetReference"
 					},
-					"name": "source2"
+					"name": "CountryInfo"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSynapseAnalyticsTable1",
+						"type": "DatasetReference"
+					},
+					"name": "FinalAirportData"
+				}
+			],
 			"transformations": [
 				{
-					"name": "derivedColumn1"
+					"name": "coordinateSplit"
 				},
 				{
-					"name": "join2"
+					"name": "join"
 				},
 				{
-					"name": "select1"
+					"name": "select"
 				}
 			],
 			"scriptLines": [
@@ -48,35 +56,47 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1",
+				"     ignoreNoFilesFound: false) ~> airport",
 				"source(output(",
 				"          Name as string,",
 				"          Code as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source2",
-				"join2 derive(lon = toDouble(split(coordinates,',')[1]),",
-				"          lat = toDouble(split(coordinates,',')[2])) ~> derivedColumn1",
-				"source1, source2 join(iso_country == Code,",
+				"     ignoreNoFilesFound: false) ~> CountryInfo",
+				"join derive(lon = toDouble(split(coordinates,',')[1]),",
+				"          lat = toDouble(split(coordinates,',')[2])) ~> coordinateSplit",
+				"airport, CountryInfo join(iso_country == Code,",
 				"     joinType:'left',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> join2",
-				"derivedColumn1 select(mapColumn(",
+				"     broadcast: 'auto')~> join",
+				"coordinateSplit select(mapColumn(",
 				"          ident,",
 				"          type,",
-				"          name = source1@name,",
+				"          name = airport@name,",
 				"          elevation_ft,",
 				"          continent,",
 				"          iso_country,",
 				"          municipality,",
-				"          Country = source2@Name,",
+				"          Country = CountryInfo@Name,",
 				"          lon,",
 				"          lat",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select1"
+				"     skipDuplicateMapOutputs: true) ~> select",
+				"select sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     staged: true,",
+				"     allowCopyCommand: true,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> FinalAirportData"
 			]
 		}
 	}
