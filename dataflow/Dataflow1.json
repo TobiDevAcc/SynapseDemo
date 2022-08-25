@@ -1,0 +1,38 @@
+{
+	"name": "Dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "airportCSV",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          ident as string,",
+				"          type as string,",
+				"          name as string,",
+				"          elevation_ft as string,",
+				"          continent as string,",
+				"          iso_country as string,",
+				"          iso_region as string,",
+				"          municipality as string,",
+				"          gps_code as string,",
+				"          iata_code as string,",
+				"          local_code as string,",
+				"          coordinates as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1"
+			]
+		}
+	}
+}
