@@ -1,0 +1,19 @@
+{
+	"name": "Binary1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "airportdemoblob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "airport-codes.csv",
+				"container": "blobairportdata"
+			}
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

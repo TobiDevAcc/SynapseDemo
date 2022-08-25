@@ -1,0 +1,18 @@
+{
+	"name": "Binary2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "airportdemoworkspace-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "airportdemofilesystem"
+			}
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}
