@@ -18,8 +18,9 @@
 					"source": {
 						"type": "ParquetSource",
 						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
+							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
+							"wildcardFileName": "*",
 							"enablePartitionDiscovery": false
 						}
 					},
@@ -207,14 +208,13 @@
 									"name": "airport_fee",
 									"type": "Double"
 								}
-							},
-							null
+							}
 						]
 					}
 				},
 				"inputs": [
 					{
-						"referenceName": "ParquetTaxi012021",
+						"referenceName": "ParquetSinkFinal",
 						"type": "DatasetReference"
 					}
 				],
