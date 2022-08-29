@@ -13,7 +13,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "DelimitedText1",
+						"referenceName": "countryCSV",
 						"type": "DatasetReference"
 					},
 					"name": "CountryInfo"
