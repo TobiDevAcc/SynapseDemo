@@ -1,8 +1,8 @@
 {
-	"name": "SQL script 3",
+	"name": "Query Sink",
 	"properties": {
 		"content": {
-			"query": "-- This is auto-generated code\nSELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://airportdemoadls.dfs.core.windows.net/airportdemofilesystem/SinkData/*.parquet',\n        FORMAT = 'PARQUET'\n    ) AS [result]\n",
+			"query": "-- This is auto-generated code\nSELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://airportdemoadls.dfs.core.windows.net/airportdemofilesystem/SinkData/*.parquet',\n        FORMAT = 'PARQUET'\n    ) AS [result]\nWHERE type = 'large_airport'",
 			"metadata": {
 				"language": "sql"
 			},
