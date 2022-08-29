@@ -20,6 +20,7 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
+							"wildcardFolderPath": "SinkData",
 							"wildcardFileName": "*",
 							"enablePartitionDiscovery": false
 						}
