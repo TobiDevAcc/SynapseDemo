@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText1",
+	"name": "countryCSV",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "airportdemoworkspace-WorkspaceDefaultStorage",
