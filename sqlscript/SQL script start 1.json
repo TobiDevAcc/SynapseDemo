@@ -1,5 +1,5 @@
 {
-	"name": "SQL script main 1",
+	"name": "SQL script start 1",
 	"properties": {
 		"content": {
 			"query": "-- 1. Airport Dataset\nSELECT TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://airportdemoadls.dfs.core.windows.net/airportdemofilesystem/airport-codes.csv',\n        FORMAT = 'CSV',\n        PARSER_VERSION = '2.0',\n        HEADER_ROW = TRUE\n    ) AS [result]\n\n\n-- Anzahl Zeilen\nSELECT COUNT(*)\nFROM\n    OPENROWSET(\n        BULK 'https://airportdemoadls.dfs.core.windows.net/airportdemofilesystem/airport-codes.csv',\n        FORMAT = 'CSV',\n        PARSER_VERSION = '2.0',\n        HEADER_ROW = TRUE\n    ) AS [result]\n\n\n-- Flughafentypen\nSELECT DISTINCT type\nFROM\n    OPENROWSET(\n        BULK 'https://airportdemoadls.dfs.core.windows.net/airportdemofilesystem/airport-codes.csv',\n        FORMAT = 'CSV',\n        PARSER_VERSION = '2.0',\n        HEADER_ROW = TRUE\n    ) AS [result]\n\n-- 2. Country Description\nSELECT TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://airportdemoadls.dfs.core.windows.net/airportdemofilesystem/country.csv',\n        FORMAT = 'CSV',\n        PARSER_VERSION = '2.0',\n        HEADER_ROW = TRUE\n    ) AS [result]\n",
