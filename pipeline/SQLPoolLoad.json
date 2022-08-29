@@ -22,7 +22,8 @@
 							"recursive": true,
 							"wildcardFolderPath": "SinkData",
 							"wildcardFileName": "*",
-							"enablePartitionDiscovery": false
+							"enablePartitionDiscovery": true,
+							"partitionRootPath": "airportdemofilesystem/SinkData"
 						}
 					},
 					"sink": {
