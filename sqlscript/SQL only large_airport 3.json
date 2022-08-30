@@ -1,5 +1,5 @@
 {
-	"name": "SQL script large_airport",
+	"name": "SQL only large_airport 3",
 	"properties": {
 		"content": {
 			"query": "-- This is auto-generated code\nSELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://airportdemoadls.dfs.core.windows.net/airportdemofilesystem/PartitionData/type=large_airport/*.parquet',\n        FORMAT = 'PARQUET'\n    ) AS [result]\n",
