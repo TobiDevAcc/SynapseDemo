@@ -1,0 +1,17 @@
+{
+	"name": "SQL query on external table",
+	"properties": {
+		"content": {
+			"query": "SELECT TOP (100) *\nFROM [dbo].[LargeAirports]\n\n\n\n\n\n\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "DedicatedSQLPool1",
+				"poolName": "DedicatedSQLPool1"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
