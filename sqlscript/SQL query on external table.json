@@ -1,8 +1,8 @@
 {
-	"name": "SQL script final 1",
+	"name": "SQL query on external table",
 	"properties": {
 		"content": {
-			"query": "SELECT TOP (100) [ident]\n,[type]\n,[name]\n,[elevation_ft]\n,[continent]\n,[iso_country]\n,[municipality]\n,[Country]\n,[lon]\n,[lat]\n FROM [dbo].[sinktable2]\n\n",
+			"query": "SELECT TOP (100) *\nFROM [dbo].[LargeAirports]\n\n\n\n\n\n\n\n\n",
 			"metadata": {
 				"language": "sql"
 			},

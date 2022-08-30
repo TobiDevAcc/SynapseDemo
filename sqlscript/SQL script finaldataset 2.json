@@ -1,8 +1,8 @@
 {
-	"name": "SQL script 1",
+	"name": "SQL script finaldataset 2",
 	"properties": {
 		"content": {
-			"query": "SELECT TOP (100) [ident]\n,[type]\n,[name]\n,[elevation_ft]\n,[continent]\n,[iso_country]\n,[municipality]\n,[Country]\n,[lon]\n,[lat]\n FROM [dbo].[sinktable2]",
+			"query": "SELECT TOP (100) [ident]\n,[type]\n,[name]\n,[elevation_ft]\n,[continent]\n,[iso_country]\n,[municipality]\n,[Country]\n,[lon]\n,[lat]\n FROM [dbo].[sinktable2]\n\n",
 			"metadata": {
 				"language": "sql"
 			},
