@@ -1,5 +1,5 @@
 {
-	"name": "SQL query on external table",
+	"name": "SQL query on external table 5",
 	"properties": {
 		"content": {
 			"query": "SELECT TOP (100) *\nFROM [dbo].[LargeAirports]\n\n\n\n\n\n\n\n\n",
