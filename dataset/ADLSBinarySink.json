@@ -1,5 +1,5 @@
 {
-	"name": "BinarySink",
+	"name": "ADLSBinarySink",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "airportdemoworkspace-WorkspaceDefaultStorage",
