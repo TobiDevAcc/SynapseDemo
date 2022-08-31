@@ -35,13 +35,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Binary3",
+						"referenceName": "BlobCountryBinary",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Binary2",
+						"referenceName": "ADLSBinarySink",
 						"type": "DatasetReference"
 					}
 				]
