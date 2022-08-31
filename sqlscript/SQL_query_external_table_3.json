@@ -1,8 +1,8 @@
 {
-	"name": "SQL query on external table 5",
+	"name": "SQL_query_external_table_3",
 	"properties": {
 		"content": {
-			"query": "SELECT TOP (100) *\nFROM [dbo].[LargeAirports]\n\n\n\n\n\n\n\n\n",
+			"query": "SELECT TOP (100) *\nFROM [dbo].[LargeAirports]\n",
 			"metadata": {
 				"language": "sql"
 			},
