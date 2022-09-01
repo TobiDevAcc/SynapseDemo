@@ -22,7 +22,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "AzureSynapseAnalyticsTable2",
+						"referenceName": "SinkDataParque",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -87,17 +87,26 @@
 				"     skipDuplicateMapOutputs: true) ~> select1",
 				"select1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     deletable:false,",
-				"     insertable:true,",
-				"     updateable:false,",
-				"     upsertable:false,",
-				"     format: 'table',",
-				"     staged: true,",
-				"     allowCopyCommand: true,",
-				"     preSQLs:['DROP dbo.sinktable2'],",
+				"     input(",
+				"          ident as string,",
+				"          name as string,",
+				"          elevation_ft as string,",
+				"          continent as string,",
+				"          iso_country as string,",
+				"          iso_region as string,",
+				"          municipality as string,",
+				"          gps_code as string,",
+				"          iata_code as string,",
+				"          local_code as string,",
+				"          coordinates as string,",
+				"          type as string",
+				"     ),",
+				"     format: 'parquet',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
