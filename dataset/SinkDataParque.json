@@ -1,0 +1,68 @@
+{
+	"name": "SinkDataParque",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "airportdemoworkspace-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "airportdemofilesystem"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "ident",
+				"type": "UTF8"
+			},
+			{
+				"name": "name",
+				"type": "UTF8"
+			},
+			{
+				"name": "elevation_ft",
+				"type": "UTF8"
+			},
+			{
+				"name": "continent",
+				"type": "UTF8"
+			},
+			{
+				"name": "iso_country",
+				"type": "UTF8"
+			},
+			{
+				"name": "iso_region",
+				"type": "UTF8"
+			},
+			{
+				"name": "municipality",
+				"type": "UTF8"
+			},
+			{
+				"name": "gps_code",
+				"type": "UTF8"
+			},
+			{
+				"name": "iata_code",
+				"type": "UTF8"
+			},
+			{
+				"name": "local_code",
+				"type": "UTF8"
+			},
+			{
+				"name": "coordinates",
+				"type": "UTF8"
+			},
+			{
+				"name": "type",
+				"type": "UTF8"
+			}
+		]
+	}
+}
