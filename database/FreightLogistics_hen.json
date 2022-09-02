@@ -1,0 +1,24 @@
+{
+	"name": "FreightLogistics_hen",
+	"properties": {
+		"Name": "FreightLogistics_hen",
+		"EntityType": "DATABASE",
+		"Description": "",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"DerivedModelDBInfo": "{\"ModelDirectives\":{\"BaseModel\":{\"Name\":\"FreightLogistics\",\"Version\":\"0.1.0\"}}}",
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://airportdemofilesystem@airportdemoadls.dfs.core.windows.net/FreightLogistics_hen",
+			"Properties": {
+				"FormatType": "csv",
+				"LinkedServiceName": "airportdemoworkspace-WorkspaceDefaultStorage"
+			}
+		}
+	},
+	"type": "DATABASE"
+}
