@@ -1,5 +1,5 @@
 {
-	"name": "SQL_create_external_table_2N",
+	"name": "SQL_create_external_table_2",
 	"properties": {
 		"content": {
 			"query": "IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseParquetFormat') \n\tCREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] \n\tWITH ( FORMAT_TYPE = PARQUET)\nGO\n\nIF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'airportdemofilesystem_airportdemoadls_dfs_core_windows_net') \n\tCREATE EXTERNAL DATA SOURCE [airportdemofilesystem_airportdemoadls_dfs_core_windows_net] \n\tWITH (\n\t\tLOCATION = 'abfss://airportdemofilesystem@airportdemoadls.dfs.core.windows.net' \n\t)\nGO\n\nCREATE EXTERNAL TABLE ExternalFinalLargeAirport (\n\t[ident] nvarchar(4000),\n\t[name] nvarchar(4000),\n\t[elevation_ft] nvarchar(4000),\n\t[continent] nvarchar(4000),\n\t[iso_country] nvarchar(4000),\n\t[municipality] nvarchar(4000),\n\t[Country] nvarchar(4000),\n\t[lon] float,\n\t[lat] float\n\t)\n\tWITH (\n\tLOCATION = 'PartitionFinalData/type=large_airport/*.parquet',\n\tDATA_SOURCE = [airportdemofilesystem_airportdemoadls_dfs_core_windows_net],\n\tFILE_FORMAT = [SynapseParquetFormat]\n\t)\nGO\n\n\nSELECT TOP 100 * FROM dbo.ExternalFinalLargeAirport\nGO",
