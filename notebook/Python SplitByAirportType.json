@@ -1,5 +1,5 @@
 {
-	"name": "Python SplitByType FinalData",
+	"name": "Python SplitByAirportType",
 	"properties": {
 		"nbformat": 4,
 		"nbformat_minor": 2,
@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "a9a6c0ef-90fa-4344-b8cb-4338a1ddc0ba"
+				"spark.autotune.trackingId": "2cee1579-e761-45eb-a12d-5f1053c1330a"
 			}
 		},
 		"metadata": {
